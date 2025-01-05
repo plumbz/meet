@@ -4,13 +4,17 @@ import App from './../App';
 
 
 describe('<App /> component', () => {
-
+    let AppDOM;
+    beforeEach(() =>{
+        AppDOM = render(<App />).container.firstChild;
+    })
 
     test('renders list of events', () => {
-    const AppDOM = render(<App />).container.firstChild;
-
-    expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
-  
+        expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();    
     });
-
+   
+  
+    test('render CitySearch', () => {
+        expect(AppDOM.querySelector('#city-search')).toBeInTheDocument(); 
+   });  
 });
