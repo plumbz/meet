@@ -5,7 +5,8 @@ const MESSAGES_TO_IGNORE = [
     "Error:",
     "The above error occurred"
   ];
-  const originalError = console.error.bind(console.error);
+
+const originalError = console.error.bind(console.error);
 
 
 console.error = (...args) => {
