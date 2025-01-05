@@ -36,7 +36,7 @@ const CitySearch = ( {allLocations} ) => {
                 return <li onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
             })}
             <li key='See all cities' onClick={handleItemClicked}>
-                <b>See all cities</b>
+                <b>See all cities fo testing</b>
             </li>
             </ul>
             : null
