@@ -1,10 +1,11 @@
 // import './App.css'
 import React from 'react';
 
+import EventList from './components/EventList';
 const App = () => {
   return (
     <div className="App">
-      <div id="event-list"></div>
+     <EventList />
     </div>
   );
  }
