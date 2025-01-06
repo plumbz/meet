@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const NumberOfEvents =({ onNumberChange, defaultNumber = 32 }) => {
-    const [eventCount, setEventCount] = useState(defaultNumber);
+const NumberOfEvents =({ onNumberChange }) => {
+    const [eventCount, setNumber] = useState(32);
   
-    const handleInputChange = (event) => {
-      const value = parseInt(event.target.value, 10);
-      setEventCount(value > 0 ? value : defaultNumber);
-      onNumberChange(value);
-    };
+    const handleChange = (event) => {
+        setNumber(event.target.value);
+        onNumberChange(event.target.value);
+      };
+      
     return (
         <div id="events-number">
         <input
@@ -15,7 +15,7 @@ const NumberOfEvents =({ onNumberChange, defaultNumber = 32 }) => {
             className="eventCounter"
             placeholder="32"
             value={eventCount}
-            onChange={handleInputChange}
+            onChange={handleChange}
              role="textbox"
         />
         </div>
