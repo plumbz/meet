@@ -13,7 +13,6 @@ const NumberOfEvents =({ onNumberChange }) => {
         <input
             type="number"
             className="eventCounter"
-            placeholder="32"
             value={eventCount}
             onChange={handleChange}
              role="textbox"
