@@ -6,12 +6,11 @@ const Event = ({event}) => {
           <p>{event.summary}</p>
           <p>{event.created}</p>
           <p>{event.location}</p>
-          <p>{event.description}</p>
           <button className="detail-btn" onClick={()=>setShowDetails(!showDetails)}>
               { showDetails ? "hide details" : "show details"}
           </button>
           {
-              showDetails ?  <p role="description" className="details">{event.eventType}</p> : <></>
+              showDetails ?  <p role="description" className="details">{event.description}</p> : <></>
           }
       </li>
   );
