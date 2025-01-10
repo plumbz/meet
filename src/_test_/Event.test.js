@@ -32,7 +32,7 @@ describe('<Event /> component', () => {
   });
 
   test('by default, event details section should be hidden', () => {
-    expect (EventComponent.queryByText(event.description)).not.toBeInTheDocument();
+    expect (EventComponent.queryByRole('description')).not.toBeInTheDocument();
   });
 
   test('shows the details section when the user clicks on the show details button', async () => {
