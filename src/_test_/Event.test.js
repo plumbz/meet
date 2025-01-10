@@ -32,26 +32,23 @@ describe('<Event /> component', () => {
   });
 
   test('by default, event details section should be hidden', () => {
-    expect (EventComponent.queryByText(event.eventType)).not.toBeInTheDocument();
+    expect (EventComponent.queryByText(event.description)).not.toBeInTheDocument();
   });
 
   test('shows the details section when the user clicks on the show details button', async () => {
     const user = userEvent.setup();
     const button = screen.getByText('show details');
     await user.click(button);
-    expect (EventComponent.queryByText(event.eventType)).toBeInTheDocument();
+    expect(EventComponent.queryByRole('description')).toBeInTheDocument();
   });
 
   test('hides event details when user clicks on hide details button', async () => {
     const user = userEvent.setup();
     let button = screen.getByText('show details');
     await user.click(button);
+    expect(EventComponent.queryByRole('description')).toBeInTheDocument();
     button = screen.getByText('hide details');
     await user.click(button);
-    expect (EventComponent.queryByText(event.eventType)).not.toBeInTheDocument();
+    expect(EventComponent.queryByRole('description')).not.toBeInTheDocument();
   });
-//   test('renders event description', () => {
-//     console.log(screen.debug());
-//     expect (EventComponent.queryByText(event.description)).toBeInTheDocument();
-//   });
 });
