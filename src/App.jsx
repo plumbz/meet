@@ -6,7 +6,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import './App.css';
 
-
+atatus.config('c82cd67b44cf4f069f97fe0e76b1e070').install();
 
 const App = () => {
   const [events, setEvents] = useState([]);
@@ -40,3 +40,4 @@ const App = () => {
 
 
  export default App;
+ 
