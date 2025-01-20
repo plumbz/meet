@@ -5,6 +5,7 @@ import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import './App.css';
+import * as atatus from 'atatus-spa';
 
 atatus.config('c82cd67b44cf4f069f97fe0e76b1e070').install();
 
