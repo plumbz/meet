@@ -6,6 +6,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import './App.css';
 import * as atatus from 'atatus-spa';
+import { InfoAlert } from './components/Alert';
 
 atatus.config('c82cd67b44cf4f069f97fe0e76b1e070').install();
 
@@ -14,6 +15,7 @@ const App = () => {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
+  const [infoAlert, setInfoAlert] = useState("");
 
  useEffect(() => {
     fetchData();
@@ -31,6 +33,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="alert-container">
+      {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
+      </div>
       <CitySearch  allLocations={allLocations} setCurrentCity={setCurrentCity} />
       <NumberOfEvents  onNumberChange={setCurrentNOE}/>
       <EventList events={events} />
