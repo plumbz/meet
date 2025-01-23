@@ -6,7 +6,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import './App.css';
 import * as atatus from 'atatus-spa';
-import { InfoAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert } from './components/Alert';
 
 atatus.config('c82cd67b44cf4f069f97fe0e76b1e070').install();
 
@@ -16,6 +16,7 @@ const App = () => {
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
+  const [errorAlert, setErrorAlert] = useState("");
 
  useEffect(() => {
     fetchData();
@@ -34,10 +35,11 @@ const App = () => {
   return (
     <div className="App">
       <div className="alert-container">
-      {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
+        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
+        {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
       </div>
-      <CitySearch  allLocations={allLocations} setCurrentCity={setCurrentCity} />
-      <NumberOfEvents  onNumberChange={setCurrentNOE}/>
+      <CitySearch  allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
+      <NumberOfEvents  onNumberChange={setCurrentNOE} setErrorAlert={setErrorAlert}/>
       <EventList events={events} />
     </div>
   );

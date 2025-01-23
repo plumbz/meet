@@ -1,7 +1,8 @@
+import React from 'react';
 import { Component } from 'react';
 
 class Alert extends Component {
-    construction (props) {
+    constructor(props) {
         super(props);
         this.color = null;
         this.bgColor = null;
@@ -25,12 +26,13 @@ class Alert extends Component {
     }
 
 
-    render() {
-        return (
-            <div className="Alert">
-            <p style={this.getStyle()}> {this.props.text}</p>
-            </div>
-        );
+
+ render() {
+    return (
+      <div className="Alert">
+        <p style={this.getStyle()}>{this.props.text}</p>
+      </div>
+    );
     }
     
 }
@@ -41,7 +43,15 @@ class InfoAlert extends Alert {
       this.color = 'rgb(0, 0, 255)'; // blue
       this.bgColor = 'rgb(220, 220, 255)'; // light blue
     }
-   }
+}
+
+class ErrorAlert extends Alert {
+    constructor(props) {
+      super(props);
+      this.color = 'rgb(255, 0, 0)'; // red
+      this.bgColor = 'rgb(247, 219, 219)'; // light red
+    }
+}
 
 
-   export { InfoAlert };
+   export { InfoAlert, ErrorAlert };

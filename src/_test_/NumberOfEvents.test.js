@@ -10,7 +10,7 @@ describe('<NumberOfEvents /> component', () => {
 
     beforeEach(() => {
       onNumberChangeMock = jest.fn();
-      numberOfEventsComponent = render(<NumberOfEvents onNumberChange={onNumberChangeMock} />);
+      numberOfEventsComponent = render(<NumberOfEvents onNumberChange={onNumberChangeMock} setErrorAlert={() => { }} />);
     });
   
     test('renders with a textbox input', () => {
