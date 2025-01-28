@@ -19,13 +19,14 @@ const NumberOfEvents =({ onNumberChange, setErrorAlert }) => {
       
     return (
         <div id="events-number">
-        <input
-            type="number"
-            className="eventCounter"
-            value={eventCount}
-            onChange={handleChange}
-             role="textbox"
-        />
+            <p> Number of Events </p>
+            <input
+                type="number"
+                className="eventCounter"
+                value={eventCount}
+                onChange={handleChange}
+                role="textbox"
+            />
         </div>
     )
 

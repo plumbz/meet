@@ -38,6 +38,7 @@ const App = () => {
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
       </div>
+      <h2> Meet App </h2>
       <CitySearch  allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
       <NumberOfEvents  onNumberChange={setCurrentNOE} setErrorAlert={setErrorAlert}/>
       <EventList events={events} />
