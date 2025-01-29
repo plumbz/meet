@@ -6,7 +6,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import './App.css';
 import * as atatus from 'atatus-spa';
-import { InfoAlert, ErrorAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 
 atatus.config('c82cd67b44cf4f069f97fe0e76b1e070').install();
 
@@ -17,8 +17,21 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
 
- useEffect(() => {
+  useEffect(() => {
+
+    let warningText;
+    if (navigator.onLine) {   
+        // set the warning alert message to a empty string
+        warningText = ""
+
+    } else {
+      // set the warning alert message to a non-empty string
+      warningText = "you are offline! events might not be up to date"
+    }
+    setWarningAlert(warningText);
+
     fetchData();
   }, [currentCity,currentNOE]);
   
@@ -37,6 +50,7 @@ const App = () => {
       <div className="alert-container">
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
       </div>
       <h2> Meet App </h2>
       <CitySearch  allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
