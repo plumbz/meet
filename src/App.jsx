@@ -8,6 +8,7 @@ import './App.css';
 import * as atatus from 'atatus-spa';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 import CityEventsChart from './components/CityEventsChart';
+import EventGenresChart from './components/EventGenresChart';
 
 atatus.config('c82cd67b44cf4f069f97fe0e76b1e070').install();
 
@@ -56,7 +57,10 @@ const App = () => {
       <h2> Meet App </h2>
       <CitySearch  allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
       <NumberOfEvents  onNumberChange={setCurrentNOE} setErrorAlert={setErrorAlert}/>
-      <CityEventsChart allLocations={allLocations} events={events} />
+      <div className="charts-container">
+        <EventGenresChart events={events} />
+        <CityEventsChart allLocations={allLocations} events={events} />
+      </div>
       <EventList events={events} />
     </div>
   );
