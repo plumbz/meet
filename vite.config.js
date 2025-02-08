@@ -12,7 +12,7 @@ export default defineConfig({
         "name": "Create React App Sample",
         "icons": [
             {
-            "src": "favicon.ico",
+            "src": "public/favicon.ico",
             "sizes": "48x48",
             "type": "image/x-icon",
             "purpose": "maskable"
