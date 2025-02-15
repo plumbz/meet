@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+
 const Event = ({event}) => {
   const [showDetails, setShowDetails] = useState(false);
   return (
-      <li className="event">
+    <div className="eventContainer">
+      <div className="event">
           <p>{event.summary}</p>
           <p>{event.created}</p>
           <p>{event.location}</p>
@@ -12,7 +14,8 @@ const Event = ({event}) => {
           {
               showDetails ?  <p role="description" className="details">{event.description}</p> : <></>
           }
-      </li>
+      </div>
+    </div>
   );
 }
 export default Event;
